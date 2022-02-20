@@ -20,6 +20,7 @@ namespace mtg_manager
         }
 
         public static List<string> swgemu_live = new List<string>(); //array for swgemu_live.cfg
+        public static List<string> mod_deploy = new List<string>(); //array for swgemu_live.cfg
         public static List<string> swgemu = new List<string>(); //array for swgemu_live.cfg
         public static List<string> cfgcontent = new List<string>(); //array for program cfg cile
         public static string cfgname = "modmanager.cfg";
@@ -136,7 +137,7 @@ namespace mtg_manager
 
         private void button1_Click(object sender, EventArgs e)//writes swgemu_live array to file
         {
-            File.WriteAllLines(cfgcontent[4] + "swgemu_live.cfg", swgemu_live);
+            File.WriteAllLines(cfgcontent[4] + "mods.cfg", mod_deploy);
             Console.WriteLine("array successfully written to file");
             MessageBox.Show("Mods have successfully been deployed!", "Mod Deploy",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
