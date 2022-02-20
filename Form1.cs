@@ -100,10 +100,10 @@ namespace mtg_manager
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)//runs swgemu. idk why this works like this, but it works so oh well
         {
             Console.WriteLine(cfgcontent[2]);
-            char cmddash = '"';
+            char cmddash = '"';//I was getting syntax errors and this worked, idk what I'm doing :)
             Process.Start("cmd.exe", ("/C cd " + cmddash + cfgcontent[4] + cmddash + " & start SWGEmu.exe"));
         }
     }
