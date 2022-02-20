@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mtg-manager", "mtg-manager.csproj", "{2BBC0F12-FD5B-449C-A7D3-2E543D1EEF48}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2BBC0F12-FD5B-449C-A7D3-2E543D1EEF48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BBC0F12-FD5B-449C-A7D3-2E543D1EEF48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BBC0F12-FD5B-449C-A7D3-2E543D1EEF48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BBC0F12-FD5B-449C-A7D3-2E543D1EEF48}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AC60F62C-0262-4D29-8DFC-2DC269B3D571}
+	EndGlobalSection
+EndGlobal
