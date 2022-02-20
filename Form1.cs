@@ -19,16 +19,15 @@ namespace mtg_manager
             InitializeComponent();
         }
 
-        public static List<string> swgemu_live = new List<string>();
-        public static List<string> cfgcontent = new List<string>();
+        public static List<string> swgemu_live = new List<string>(); //array for swgemu_live.cfg
+        public static List<string> cfgcontent = new List<string>(); //array for program cfg cile
+        public static string cfgname = "modmanager.cfg";
+        public static string[] tre_files;
 
         private void Form1_Load(object sender, EventArgs e)
         {
             string cfgname = "modmanager.cfg";
             string swgemuPath;
-            string[] tre_files;
-
-            int i = 0;
 
             if (!File.Exists(cfgname)) //creates 1st time run cfg file
             {
@@ -66,9 +65,10 @@ namespace mtg_manager
                 if (cfgcontent[2] == "SWGEmu.exe folder path")//open the "open file" dialogue to find the swgemu.exe path
                 {
                     MessageBox.Show("Please find your SWGEmu.exe", "1st time setup",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                     OpenFileDialog ofd = new OpenFileDialog();
-                    ofd.Filter = "All Files (*.*)|*.*";
+                    ofd.FileName = "SWGEmu.exe";
+                    ofd.Filter = "exe files (*.exe*)|*.exe*";
                     ofd.FilterIndex = 1;
                     ofd.Multiselect = false;
 
@@ -105,6 +105,32 @@ namespace mtg_manager
             Console.WriteLine(cfgcontent[2]);
             char cmddash = '"';//I was getting syntax errors and this worked, idk what I'm doing :)
             Process.Start("cmd.exe", ("/C cd " + cmddash + cfgcontent[4] + cmddash + " & start SWGEmu.exe"));
+        }
+
+        private void button1_Click(object sender, EventArgs e)//writes swgemu_live array to file
+        {
+            File.WriteAllLines(cfgcontent[4] + "swgemu_live.cfg", swgemu_live);
+            Console.WriteLine("array successfully written to file");
+            MessageBox.Show("Mods have successfully been deployed!", "Mod Deploy",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void button2_Click(object sender, EventArgs e)// copys mod from chosen location to the /mods folder
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "TRE files (*.tre*)|*.tre*";
+            ofd.FilterIndex = 1;
+            ofd.Multiselect = false;
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                string modLocation = ofd.FileName;
+                string modName = ofd.SafeFileName;
+                Console.WriteLine(modLocation);
+                Console.WriteLine(cfgcontent[3] + "/" + modName);
+                File.Copy(modLocation, cfgcontent[3] + "/" + modName, true);
+            }
+            tre_files = Directory.GetFiles(cfgcontent[3], "*.tre");
         }
     }
 }
