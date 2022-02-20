@@ -20,6 +20,7 @@ namespace mtg_manager
         }
 
         public static List<string> swgemu_live = new List<string>(); //array for swgemu_live.cfg
+        public static List<string> swgemu = new List<string>(); //array for swgemu_live.cfg
         public static List<string> cfgcontent = new List<string>(); //array for program cfg cile
         public static string cfgname = "modmanager.cfg";
         public static string[] tre_files;
@@ -95,16 +96,42 @@ namespace mtg_manager
                 Console.WriteLine(line1);
             }
 
+            foreach (string line in File.ReadLines(cfgcontent[4] + "swgemu.cfg")) //reads the swgemu_live.cfg file
+            {
+                swgemu.Add(line);
+                Console.WriteLine(line);
+            }
+
+            bool exists = false;
+            if (exists = swgemu.Any(s => s.Contains("mod"))) { }
+            else
+            {
+                swgemu.Add(".include \"mods.cfg\"");
+                File.WriteAllLines(cfgcontent[4] + "swgemu.cfg", swgemu);
+            }
+
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(cfgcontent[4] + "mods.cfg"))
+                    writer.Write("");
+            }
+            catch { }
+
+
             tre_files = Directory.GetFiles(cfgcontent[3], "*.tre"); //identify mods (if any) in the mod folder
-
-
+            int y = 0;
+            while (y < tre_files.Length)
+            {
+                tre_files[y] = Path.GetFileNameWithoutExtension(tre_files[y]);
+                y++;
+            }
+            checkedListBox1.Items.AddRange(tre_files);
         }
 
         private void button4_Click(object sender, EventArgs e)//runs swgemu. idk why this works like this, but it works so oh well
         {
             Console.WriteLine(cfgcontent[2]);
-            char cmddash = '"';//I was getting syntax errors and this worked, idk what I'm doing :)
-            Process.Start("cmd.exe", ("/C cd " + cmddash + cfgcontent[4] + cmddash + " & start SWGEmu.exe"));
+            Process.Start("cmd.exe", ("/C cd \"" + cfgcontent[4] + "\" & start SWGEmu.exe"));
         }
 
         private void button1_Click(object sender, EventArgs e)//writes swgemu_live array to file
@@ -130,7 +157,20 @@ namespace mtg_manager
                 Console.WriteLine(cfgcontent[3] + "/" + modName);
                 File.Copy(modLocation, cfgcontent[3] + "/" + modName, true);
             }
-            tre_files = Directory.GetFiles(cfgcontent[3], "*.tre");
+            tre_files = Directory.GetFiles(cfgcontent[3], "*.tre"); //identify mods (if any) in the mod folder
+            checkedListBox1.Items.Clear();
+            int y = 0;
+            while (y < tre_files.Length)
+            {
+                tre_files[y] = Path.GetFileNameWithoutExtension(tre_files[y]);
+                y++;
+            }
+            checkedListBox1.Items.AddRange(tre_files);
+        }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
