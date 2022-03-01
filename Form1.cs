@@ -113,7 +113,7 @@ namespace mtg_manager
 
             try
             {
-                using (StreamWriter writer = new StreamWriter(cfgcontent[4] + "mods.cfg"))
+                using (StreamWriter writer = new StreamWriter(cfgcontent[4] + "mods.cfg"))//ignore this. 
                     writer.Write("");
             }
             catch { }
@@ -170,6 +170,16 @@ namespace mtg_manager
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
         {
 
         }
