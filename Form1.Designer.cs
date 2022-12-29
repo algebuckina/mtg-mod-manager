@@ -46,6 +46,7 @@ namespace mtg_manager
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -66,11 +67,11 @@ namespace mtg_manager
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(244)))), ((int)(((byte)(252)))));
-            this.label2.Location = new System.Drawing.Point(693, 428);
+            this.label2.Location = new System.Drawing.Point(624, 420);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 13);
+            this.label2.Size = new System.Drawing.Size(138, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "By Algebuckina";
+            this.label2.Text = "By Algebuckina Design";
             // 
             // button1
             // 
@@ -81,9 +82,9 @@ namespace mtg_manager
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Aqua;
-            this.button1.Location = new System.Drawing.Point(262, 415);
+            this.button1.Location = new System.Drawing.Point(263, 415);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(119, 23);
             this.button1.TabIndex = 2;
             this.button1.Text = "Deploy";
             this.button1.UseVisualStyleBackColor = true;
@@ -100,7 +101,7 @@ namespace mtg_manager
             this.button2.ForeColor = System.Drawing.Color.Aqua;
             this.button2.Location = new System.Drawing.Point(138, 415);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(118, 23);
+            this.button2.Size = new System.Drawing.Size(119, 23);
             this.button2.TabIndex = 3;
             this.button2.Text = "Add From File";
             this.button2.UseVisualStyleBackColor = true;
@@ -119,7 +120,7 @@ namespace mtg_manager
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(120, 23);
             this.button3.TabIndex = 4;
-            this.button3.Text = "Pack Mod to TRE";
+            this.button3.Text = "Pack Mod to tre";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button4
@@ -131,9 +132,9 @@ namespace mtg_manager
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.Aqua;
-            this.button4.Location = new System.Drawing.Point(343, 415);
+            this.button4.Location = new System.Drawing.Point(388, 415);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.Size = new System.Drawing.Size(119, 23);
             this.button4.TabIndex = 5;
             this.button4.Text = "Launch";
             this.button4.UseVisualStyleBackColor = true;
@@ -262,12 +263,25 @@ namespace mtg_manager
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click_1);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(244)))), ((int)(((byte)(252)))));
+            this.label6.Location = new System.Drawing.Point(624, 433);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(183, 13);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "https://algebuckina-design.au/";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(88)))), ((int)(((byte)(105)))));
             this.ClientSize = new System.Drawing.Size(809, 461);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -313,6 +327,7 @@ namespace mtg_manager
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.CheckedListBox checkedListBox2;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label6;
     }
 }
 

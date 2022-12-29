@@ -97,7 +97,7 @@ namespace mtg_manager
                 Console.WriteLine(line1);
             }
 
-            foreach (string line in File.ReadLines(cfgcontent[4] + "swgemu.cfg")) //reads the swgemu_live.cfg file
+            foreach (string line in File.ReadLines(cfgcontent[4] + "swgemu.cfg")) //reads the swgemu.cfg file
             {
                 swgemu.Add(line);
                 Console.WriteLine(line);
@@ -137,6 +137,7 @@ namespace mtg_manager
 
         private void button1_Click(object sender, EventArgs e)//writes swgemu_live array to file
         {
+
             File.WriteAllLines(cfgcontent[4] + "mods.cfg", mod_deploy);
             Console.WriteLine("array successfully written to file");
             MessageBox.Show("Mods have successfully been deployed!", "Mod Deploy",
@@ -176,12 +177,17 @@ namespace mtg_manager
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button5_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://algebuckina-design.au");
         }
     }
 }
