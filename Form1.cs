@@ -41,7 +41,7 @@ namespace mtg_manager
                     sw.WriteLine("mod folder path");
                     sw.WriteLine("");
                     sw.WriteLine("Folder path");
-                    sw.WriteLine("By Algebuckina");
+                    sw.WriteLine("By Algebuckina Design, https://algebuckina-design.au");
                 }
             }
 
@@ -182,12 +182,28 @@ namespace mtg_manager
 
         private void button5_Click_1(object sender, EventArgs e)
         {
-
+            Console.WriteLine("Enable button");
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
             Process.Start("https://algebuckina-design.au");
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Disable button");
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Disable All button");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Feature is a work in progress", "Tre pack",
+                   MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
