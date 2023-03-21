@@ -8,7 +8,7 @@ This is the offical [ModTheGalaxy.com](https://modthegalaxy.com/) Mod Manager.
 * Imports TRE files to a mod folder
 * Displays mods in the mod folder
 * Reads swgemu_live.cfg file
-* Laucnhes game
+* Launches game
 
 **The Jawa Toolbox - Planned features**
 * Easily enables and disables mods
