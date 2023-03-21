@@ -137,14 +137,11 @@ namespace mtg_manager
 
         private void button1_Click(object sender, EventArgs e)//writes swgemu_live array to file
         {
-            Console.WriteLine("running search");
-
             int indexToModify = -1;
             bool foundLine = false;
-            for (int i = 0; i < swgemu_live.Count; i++)
+            for (int i = 0; i < swgemu_live.Count; i++)//looks for the line with max search priority
             {
-                Console.WriteLine("looking for it");
-                if (swgemu_live[i].Contains("maxSearchPriority"))
+                if (swgemu_live[i].Contains("maxSearchPriority"))//finds a line with "maxSearchPriotiy
                 {
                     Console.WriteLine("found it");
                     foundLine = true;
@@ -153,16 +150,15 @@ namespace mtg_manager
                 }
             }
 
-            // Step 5: Modify line if found
+            // Chnage maxSearchPriority if it's found
             if (foundLine)
             {
-                swgemu_live[indexToModify] = "maxSearchPriority=777";
+                swgemu_live[indexToModify] = "maxSearchPriority=999";
                 Console.WriteLine("changed it");
             }
 
-            File.WriteAllLines(cfgcontent[4] + "mods.cfg", mod_deploy);
+            //File.WriteAllLines(cfgcontent[4] + "mods.cfg", mod_deploy);
             File.WriteAllLines(cfgcontent[4] + "swgemu_live.cfg", swgemu_live);
-            Console.WriteLine("array successfully written to file");
             MessageBox.Show("Mods have successfully been deployed!", "Mod Deploy",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

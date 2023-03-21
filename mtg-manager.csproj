@@ -129,6 +129,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="README.mD" />
     <None Include="Resources\button.png" />
   </ItemGroup>
   <ItemGroup>
