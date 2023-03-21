@@ -1,4 +1,5 @@
-﻿# Mod Manager for SWGEMu
+﻿# Mod Manager for SWGEmu
+**It is a work in progress, so is not fully functional yet!**
 This is the offical [ModTheGalaxy.com](https://modthegalaxy.com/) Mod Manager.
 
 
