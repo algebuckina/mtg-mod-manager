@@ -18,4 +18,4 @@ This is the offical [ModTheGalaxy.com](https://modthegalaxy.com/) Mod Manager.
 * Writing to swgemu_live.cfg
 
 **Preview**
-[![Mod Manager Preview](https://media.discordapp.net/attachments/605830172721283082/1087615977262420008/image.png)]
+![Mod Manager Preview](https://media.discordapp.net/attachments/605830172721283082/1087615977262420008/image.png)
