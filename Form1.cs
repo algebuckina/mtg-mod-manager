@@ -127,51 +127,6 @@ namespace mtg_manager
                 y++;
             }
             checkedListBox1.Items.AddRange(tre_files);
-
-            // Iterate through the elements of the array
-            for (int i = 0; i < swgemu_live.Count; i++)
-            {
-                // Check if the current element contains the required pattern
-                if (swgemu_live[i].Contains("searchTree_00_"))
-                {
-                    // Extract the value of XX from the current element
-                    int index = swgemu_live[i].IndexOf("searchTree_00_") + "searchTree_00_".Length;
-                    string xxString = swgemu_live[i].Substring(index, 2);
-
-                    // Convert the value of XX to an integer
-                    if (int.TryParse(xxString, out int xx))
-                    {
-                        // Check if the value of XX is greater than 25
-                        if (xx > 25)
-                        {
-                            // Display the current element in checkedListBox2
-                            checkedListBox2.Items.Add(swgemu_live[i]);
-                        }
-                    }
-                }
-            }
-
-            List<string> extractedData = new List<string>();
-
-            // Loop through each item in the CheckedListBox2
-            foreach (string item in checkedListBox2.Items)
-            {
-                // Find the index of the "searchTree_00_" string and add its length to get the starting index of the desired text
-                int startIndex = item.IndexOf("searchTree_00_") + "searchTree_00_".Length;
-
-                // Find the index of the ".tre" string and subtract the starting index to get the length of the desired text
-                int length = item.IndexOf(".tre") - startIndex;
-
-                // Use the Substring method to extract the desired text from the original string
-                string desiredText = item.Substring(startIndex, length);
-
-                // Add the extracted text to the extractedData list
-                extractedData.Add(desiredText);
-            }
-
-            // Clear the CheckedListBox2 items and add the extractedData list
-            checkedListBox2.Items.Clear();
-            checkedListBox2.Items.AddRange(extractedData.ToArray());
         }
 
         private void button4_Click(object sender, EventArgs e)//runs swgemu. idk why this works like this, but it works so oh well
@@ -247,6 +202,22 @@ namespace mtg_manager
         private void button5_Click_1(object sender, EventArgs e)
         {
             Console.WriteLine("Enable button");
+            // Loop through the items in CheckedListBox1
+            for (int i = 0; i < checkedListBox1.Items.Count; i++)
+            {
+                // Check if the item is checked
+                if (checkedListBox1.GetItemChecked(i))
+                {
+                    // Add the item to CheckedListBox2
+                    checkedListBox2.Items.Add(checkedListBox1.Items[i]);
+
+                    // Remove the item from CheckedListBox1
+                    checkedListBox1.Items.RemoveAt(i);
+
+                    // Decrement the loop counter to account for the removed item
+                    i--;
+                }
+            }
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -257,11 +228,23 @@ namespace mtg_manager
         private void button6_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Disable button");
+            // Loop through each checked item in checkedListBox2
+            for (int i = checkedListBox2.CheckedItems.Count - 1; i >= 0; i--)
+            {
+                // Add the checked item to checkedListBox1
+                checkedListBox1.Items.Add(checkedListBox2.CheckedItems[i]);
+                // Remove the checked item from checkedListBox2
+                checkedListBox2.Items.Remove(checkedListBox2.CheckedItems[i]);
+            }
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Disable All button");
+            {
+                checkedListBox1.Items.AddRange(checkedListBox2.Items);
+                checkedListBox2.Items.Clear();
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)

@@ -4,14 +4,14 @@
 This is the offical [ModTheGalaxy.com](https://modthegalaxy.com/) Mod Manager.
 
 
-**MTG Mod Manager - Features**
+**Features**
+* Easily enables and disables mods
 * Imports TRE files to a mod folder
 * Displays mods in the mod folder
 * Reads swgemu_live.cfg file
 * Launches game
 
-**The Jawa Toolbox - Planned features**
-* Easily enables and disables mods
+**Planned features**
 * Let users choose mod order
 * Packs a mod to a TRE file 
 * List available mods to download from the MTG website
