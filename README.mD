@@ -10,12 +10,13 @@ This is the offical [ModTheGalaxy.com](https://modthegalaxy.com/) Mod Manager.
 * Displays mods in the mod folder
 * Reads swgemu_live.cfg file
 * Launches game
+* Let users choose mod order
+* Writing to swgemu_live.cfg
+* Making a new cfg, mod.cfg, and writing to it
 
 **Planned features**
-* Let users choose mod order
 * Packs a mod to a TRE file 
 * List available mods to download from the MTG website
-* Writing to swgemu_live.cfg
 
 **Preview**
 ![Mod Manager Preview](https://media.discordapp.net/attachments/605830172721283082/1087615977262420008/image.png)
