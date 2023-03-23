@@ -173,7 +173,7 @@ namespace mtg_manager
                 sw.WriteLine("maxSearchPriority=999");
                 for(int i = 0; i < mod_deploy.Count; i++)
                 {
-                    mod_deploy[i] = "searchTree__00__" + stp + "=mods/" + mod_deploy[i] + ".tre";
+                    mod_deploy[i] = "searchTree_00_" + stp + "=mods/" + mod_deploy[i] + ".tre";
                     stp--;
                 }
                 
