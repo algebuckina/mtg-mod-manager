@@ -18,4 +18,4 @@ This is the offical [ModTheGalaxy.com](https://modthegalaxy.com/) Mod Manager.
 * List available mods to download from the MTG website
 
 **Preview**
-![Mod Manager Preview](https://media.discordapp.net/attachments/605830172721283082/1087615977262420008/image.png)
+![Mod Manager Preview](https://algebuckina-design.au/assets/uploads/files/1679567110171-screenshot-2023-03-23-212124.png)

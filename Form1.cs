@@ -167,7 +167,7 @@ namespace mtg_manager
             catch { }
 
             int stp = 900;
-            using (StreamWriter sw = File.CreateText(cfgcontent[4] + "mods.cfg"))
+            using (StreamWriter sw = File.CreateText(cfgcontent[4] + "mods.cfg"))//writes 
             {
                 sw.WriteLine("[SharedFile]");
                 sw.WriteLine("maxSearchPriority=999");
