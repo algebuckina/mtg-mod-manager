@@ -47,6 +47,9 @@ namespace mtg_manager
             this.button5 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -153,6 +156,7 @@ namespace mtg_manager
             // 
             this.checkedListBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(119)))), ((int)(((byte)(141)))));
             this.checkedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.checkedListBox1.CheckOnClick = true;
             this.checkedListBox1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkedListBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(244)))), ((int)(((byte)(252)))));
             this.checkedListBox1.FormattingEnabled = true;
@@ -172,6 +176,7 @@ namespace mtg_manager
             // 
             // checkedListBox2
             // 
+            this.checkedListBox2.AllowDrop = true;
             this.checkedListBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(119)))), ((int)(((byte)(141)))));
             this.checkedListBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.checkedListBox2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -276,12 +281,60 @@ namespace mtg_manager
             this.panel3.Size = new System.Drawing.Size(148, 47);
             this.panel3.TabIndex = 16;
             // 
+            // button8
+            // 
+            this.button8.BackgroundImage = global::mtg_manager.Properties.Resources.button;
+            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.Color.Aqua;
+            this.button8.Location = new System.Drawing.Point(347, 378);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(119, 23);
+            this.button8.TabIndex = 17;
+            this.button8.Text = "Move Down";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // button9
+            // 
+            this.button9.BackgroundImage = global::mtg_manager.Properties.Resources.button;
+            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.ForeColor = System.Drawing.Color.Aqua;
+            this.button9.Location = new System.Drawing.Point(347, 349);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(119, 23);
+            this.button9.TabIndex = 18;
+            this.button9.Text = "Move up";
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(244)))), ((int)(((byte)(252)))));
+            this.label1.Location = new System.Drawing.Point(367, 325);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Mod Order:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(88)))), ((int)(((byte)(105)))));
             this.ClientSize = new System.Drawing.Size(814, 475);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button9);
+            this.Controls.Add(this.button8);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button5);
@@ -328,6 +381,9 @@ namespace mtg_manager
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Label label1;
     }
 }
 

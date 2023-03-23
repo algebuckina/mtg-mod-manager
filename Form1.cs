@@ -20,7 +20,8 @@ namespace mtg_manager
         }
 
         public static List<string> swgemu_live = new List<string>(); //array for swgemu_live.cfg
-        public static List<string> mod_deploy = new List<string>(); //array for swgemu_live.cfg
+        public static List<string> mod_deploy = new List<string>(); //array for mods.cfg
+        public static List<string> mod_deployed = new List<string>(); //array to take mod_deploy and apply it to mods.cfg
         public static List<string> swgemu = new List<string>(); //array for swgemu_live.cfg
         public static List<string> cfgcontent = new List<string>(); //array for program cfg cile
         public static string cfgname = "modmanager.cfg";
@@ -111,14 +112,6 @@ namespace mtg_manager
                 File.WriteAllLines(cfgcontent[4] + "swgemu.cfg", swgemu);
             }
 
-            try
-            {
-                using (StreamWriter writer = new StreamWriter(cfgcontent[4] + "mods.cfg"))//ignore this. 
-                    writer.Write("");
-            }
-            catch { }
-
-
             tre_files = Directory.GetFiles(cfgcontent[3], "*.tre"); //identify mods (if any) in the mod folder
             int y = 0;
             while (y < tre_files.Length)
@@ -135,8 +128,9 @@ namespace mtg_manager
             Process.Start("cmd.exe", ("/C cd \"" + cfgcontent[4] + "\" & start SWGEmu.exe"));
         }
 
-        private void button1_Click(object sender, EventArgs e)//writes swgemu_live array to file
+        private void button1_Click(object sender, EventArgs e)//deploys mods
         {
+            //this creates and overwrites the origional mods.
             int indexToModify = -1;
             bool foundLine = false;
             for (int i = 0; i < swgemu_live.Count; i++)//looks for the line with max search priority
@@ -150,14 +144,51 @@ namespace mtg_manager
                 }
             }
 
-            // Chnage maxSearchPriority if it's found
+            // Change maxSearchPriority if it's found
             if (foundLine)
             {
                 swgemu_live[indexToModify] = "maxSearchPriority=999";
                 Console.WriteLine("changed it");
             }
 
-            //File.WriteAllLines(cfgcontent[4] + "mods.cfg", mod_deploy);
+            int itemCount = checkedListBox2.Items.Count;
+
+            for (int i = 0; i < itemCount; i++)
+            {
+                mod_deploy.Add(checkedListBox2.Items[i].ToString());
+            }
+
+            try//creates mods.cfg
+            {
+
+                using (StreamWriter writer = new StreamWriter(cfgcontent[4] + "mods.cfg"))
+                    writer.Write("");
+            }
+            catch { }
+
+            int stp = 900;
+            using (StreamWriter sw = File.CreateText(cfgcontent[4] + "mods.cfg"))
+            {
+                sw.WriteLine("[SharedFile]");
+                sw.WriteLine("maxSearchPriority=999");
+                for(int i = 0; i < mod_deploy.Count; i++)
+                {
+                    mod_deploy[i] = "searchTree__00__" + stp + "=mods/" + mod_deploy[i] + ".tre";
+                    stp--;
+                }
+                
+            }
+            File.AppendAllLines(cfgcontent[4] + "mods.cfg", mod_deploy);
+
+
+            //spot to turn mod_deploy into mod_deployed
+            //Logic for this will be as follows:
+            //mod_deploy will be made from checkedListBox2
+            //mod_deployed will then be created, adding [SharedFile] as the 1st line, and maxSearchPriority=999 as the 2nd line
+            //the 3rd line will look something like this mod_deployed[2]="searchTree__00__" + stp + "=mods/" + mod_deploy[0] + ".tre"
+            //stp will be 900, and every line it will decrease by 1. A really dumb way of running
+
+
             File.WriteAllLines(cfgcontent[4] + "swgemu_live.cfg", swgemu_live);
             MessageBox.Show("Mods have successfully been deployed!", "Mod Deploy",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -201,20 +232,14 @@ namespace mtg_manager
 
         private void button5_Click_1(object sender, EventArgs e)
         {
-            Console.WriteLine("Enable button");
-            // Loop through the items in CheckedListBox1
             for (int i = 0; i < checkedListBox1.Items.Count; i++)
             {
-                // Check if the item is checked
                 if (checkedListBox1.GetItemChecked(i))
                 {
                     // Add the item to CheckedListBox2
                     checkedListBox2.Items.Add(checkedListBox1.Items[i]);
-
                     // Remove the item from CheckedListBox1
                     checkedListBox1.Items.RemoveAt(i);
-
-                    // Decrement the loop counter to account for the removed item
                     i--;
                 }
             }
@@ -227,8 +252,6 @@ namespace mtg_manager
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Disable button");
-            // Loop through each checked item in checkedListBox2
             for (int i = checkedListBox2.CheckedItems.Count - 1; i >= 0; i--)
             {
                 // Add the checked item to checkedListBox1
@@ -251,6 +274,46 @@ namespace mtg_manager
         {
             MessageBox.Show("Feature is a work in progress", "Tre pack",
                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void button9_Click(object sender, EventArgs e)//move mod up in load order
+        {
+            int selectedIndex = checkedListBox2.SelectedIndex;
+            if (selectedIndex > 0)
+            {
+                // Swap the selected item with the one above it
+                object temp = checkedListBox2.Items[selectedIndex];
+                checkedListBox2.Items[selectedIndex] = checkedListBox2.Items[selectedIndex - 1];
+                checkedListBox2.Items[selectedIndex - 1] = temp;
+
+                // Preserve the checked state of the item
+                bool isChecked = checkedListBox2.GetItemChecked(selectedIndex);
+                checkedListBox2.SetItemChecked(selectedIndex, checkedListBox2.GetItemChecked(selectedIndex - 1));
+                checkedListBox2.SetItemChecked(selectedIndex - 1, isChecked);
+
+                // Select the moved item
+                checkedListBox2.SelectedIndex = selectedIndex - 1;
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)//move mod down in load order
+        {
+            int selectedIndex = checkedListBox2.SelectedIndex;
+            if (selectedIndex < checkedListBox2.Items.Count - 1)
+            {
+                // Swap the selected item with the one below it
+                object temp = checkedListBox2.Items[selectedIndex];
+                checkedListBox2.Items[selectedIndex] = checkedListBox2.Items[selectedIndex + 1];
+                checkedListBox2.Items[selectedIndex + 1] = temp;
+
+                // Preserve the checked state of the item
+                bool isChecked = checkedListBox2.GetItemChecked(selectedIndex);
+                checkedListBox2.SetItemChecked(selectedIndex, checkedListBox2.GetItemChecked(selectedIndex + 1));
+                checkedListBox2.SetItemChecked(selectedIndex + 1, isChecked);
+
+                // Select the moved item
+                checkedListBox2.SelectedIndex = selectedIndex + 1;
+            }
         }
     }
 }
