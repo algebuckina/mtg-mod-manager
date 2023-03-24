@@ -84,10 +84,7 @@ namespace mtg_manager
                 }
 
                 cfgcontent[3] = cfgcontent[2].Replace("SWGEmu.exe", "mods");
-                if (!Directory.Exists(cfgcontent[3]))
-                {
-                    Directory.CreateDirectory(cfgcontent[3]);
-                }
+                Directory.CreateDirectory(cfgcontent[3]);
                 cfgcontent[4] = cfgcontent[2].Replace("SWGEmu.exe", "");
                 File.WriteAllLines(cfgname, cfgcontent);
             }
@@ -158,14 +155,6 @@ namespace mtg_manager
                 mod_deploy.Add(checkedListBox2.Items[i].ToString());
             }
 
-            try//creates mods.cfg
-            {
-
-                using (StreamWriter writer = new StreamWriter(cfgcontent[4] + "mods.cfg"))
-                    writer.Write("");
-            }
-            catch { }
-
             int stp = 900;
             using (StreamWriter sw = File.CreateText(cfgcontent[4] + "mods.cfg"))//writes 
             {
@@ -179,15 +168,6 @@ namespace mtg_manager
                 
             }
             File.AppendAllLines(cfgcontent[4] + "mods.cfg", mod_deploy);
-
-
-            //spot to turn mod_deploy into mod_deployed
-            //Logic for this will be as follows:
-            //mod_deploy will be made from checkedListBox2
-            //mod_deployed will then be created, adding [SharedFile] as the 1st line, and maxSearchPriority=999 as the 2nd line
-            //the 3rd line will look something like this mod_deployed[2]="searchTree__00__" + stp + "=mods/" + mod_deploy[0] + ".tre"
-            //stp will be 900, and every line it will decrease by 1. A really dumb way of running
-
 
             File.WriteAllLines(cfgcontent[4] + "swgemu_live.cfg", swgemu_live);
             MessageBox.Show("Mods have successfully been deployed!", "Mod Deploy",
