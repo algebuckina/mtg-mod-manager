@@ -1,0 +1,82 @@
+<div class="slideshow">
+    <img class="mySlides" src="/assets/uploads/files/1673670347653-testrender4.jpg">
+    <img class="mySlides" src="/assets/uploads/files/1673670096697-adrs2023.jpg">
+    <img class="mySlides" src="/assets/uploads/files/1673673986595-vr.jpg">
+</div>
+<img src="/assets/uploads/files/1666497396624-white.png" style="width:100%">
+
+<div class="added">
+    <br><br>
+    <h4>This website is a work in progress, There are a lot of empty pages that still need to be coded. Please sit tight
+        and contact us if you need any more information.</h4>
+
+    <h1>Products</h1>
+    <div class="content1">
+
+        <div class="left">
+            <a href="./wood-keyboard">
+                <img src="/assets/uploads/files/1673666394644-untitled.jpg" alt="Keyboard render" width="100%">
+                <h2 class="linkhead">Wood Keyboard</h2>
+                <p class="linkp">Our flagship product. Developed over 2 years, the wood keyboard is a renewable and
+                    sustainable take on the mechanical keyboard. For those who want to stand out, while clicking heads
+                    or in the workplace, and still have the satisfaction
+                    of a mechanical keyswitch, this keyboard is for you.</p>
+            </a>
+        </div>
+
+        <div class="right">
+            <a href="./car-head-unit">
+                <img src="/assets/uploads/files/1673667428904-rpie.jpg" alt="Head unit render" width="100%">
+                <h2 class="linkhead">Open Source Head Unit</h2>
+                <p class="linkp">Current car head units suck! The industry has stagnated with only a handfull of
+                    manufacturers only doing the bare minimum. We plan to put the technology back in the hands of the
+                    users with our kits based on a Raspberry Pi. Can include
+                    Android Auto!</p>
+                <br><br>
+            </a>
+        </div>
+    </div>
+    <h1>Services</h1>
+    <div class="content1">
+        <div class="left">
+            <a href="./swgemu-mod-manager">
+                <img src="/assets/uploads/files/1672965878806-websites-image.jpg" alt="Nodebb tools screenshot"
+                    width="100%">
+                <h2 class="linkhead">SWGEmu Mod Manager</h2>
+                <p class="linkp">Keeping track of mods in a video game is hard work, especially with a lot of mods come
+                    as loose files. Bradley Turner wanted to change that in Star Wars Galaxies, so we developed this mod
+                    manager for SWGEmu and Mod the Galaxy.</p>
+            </a>
+        </div>
+
+        <div class="right">
+            <a href="./vr">
+                <img src="/assets/uploads/files/1673668045931-steamvr.jpg" alt="Steam Hammer Screenshot" width="100%">
+                <h2 class="linkhead">Virtual Reality Service</h2>
+                <p class="linkp">Virtual Reality might not be the most popular topic at the moment due to a certain
+                    social media company, but there is no doubt it has its place in both the gaming and marketing world.
+                    We offer a service to create a custom VR space/environment
+                    based in SteamVR, a free and easily accessible platform.</p>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.opacity = "0";
+            }
+            myIndex++;
+            if (myIndex > x.length) {
+                myIndex = 1
+            }
+            x[myIndex - 1].style.opacity = "1";
+            setTimeout(carousel, 10000); // Change image every 10 seconds
+        }
+    </script>
+</div>
